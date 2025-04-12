@@ -2,6 +2,7 @@ import { shadow } from "@/styles/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ModeToggle } from "./ui/DarkMode";
 
 
 
@@ -30,7 +31,7 @@ function Header() {
 
         <div className="flex gap-4">
           {user ? (
-            "Logout"
+            <LogOutButton />
            ) : 
           (
             <>
@@ -43,6 +44,7 @@ function Header() {
             </>
           )
         }
+        <ModeToggle />
         </div>
     </header>
   )
