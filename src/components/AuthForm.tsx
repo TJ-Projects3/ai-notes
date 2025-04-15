@@ -10,6 +10,7 @@ import LogOutButton from "./LogOutButton";
 import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { loginAction, signUpAction } from "@/actions/users";
 
 type Props = {
     type: "login" | "signUp";
@@ -30,9 +31,9 @@ function AuthForm({type}: Props) {
           let title;
           let description;
           if (isLoginForm) {
-            errorMessage = (await loginAction(email, password).errorMessage)
+            errorMessage = ((await loginAction(email, password)).errorMessage)
           } else {
-            errorMessage = (await signUpAction(email, password).errorMessage)
+            errorMessage = ((await signUpAction(email, password)).errorMessage)
           }
 
           if(!errorMessage) {
